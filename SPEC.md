@@ -51,9 +51,11 @@ Use `unit`, `integration`, and `e2e` pytest markers. Run `.venv/bin/python check
 ### Work record
 
 - Issue: [RPS-001: Play a round](https://github.com/kaw393939/is218rp003/issues/1).
-- Pull request / CI: add actual URLs when they exist.
+- Pull request: [RPS-001: Play a round #2](https://github.com/kaw393939/is218rp003/pull/2).
+- CI: [Python checks run](https://github.com/kaw393939/is218rp003/actions/runs/40372360126) for commit `d9c5370e49a7e6c19acf185e774ebb80c19e0323`.
 - Implementation: [game.py](game.py) returns the result of one independent round. The supplied server and interface are unchanged.
 - Checks (2026-10-26): `.venv/bin/python check.py` passed Black, Pylint, 23 non-browser tests, and 6 Chromium tests. [Rule and request tests](tests/test_game.py) cover all nine literal matchups and a submitted rock-versus-paper loss. [Browser round and replay](tests/e2e/test_round.py) checks a loss followed by a win using real rules. Supplied missing/unsupported-input checks remain in use.
 - Review: inspected the changed code, both new test files, and the diff against the agreed plan; no issues found. `git diff --check` passed.
 - Student browser observation: chose scissors, the computer chose paper, and the game displayed a player win, matching the expected result. Automated checks do not establish every aspect of usability or performance.
 - Keyboard review: the student confirmed that Tab to select a move and Enter to submit another round worked.
+- Test discussion: the student identified that the rock-versus-paper test catches an incorrect player win. Provided help explaining `assert`, the real request test, and browser round/replay assertions.
